@@ -1,0 +1,5 @@
+pandas
+seaborn
+scikit-learn==1.0.1
+xgboost
+nltk==3.6.7
