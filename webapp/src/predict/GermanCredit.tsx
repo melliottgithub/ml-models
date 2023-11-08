@@ -28,6 +28,8 @@ type GermanCredit = {
 };
 
 const GermanCreditForm = () => {
+  const [isRunning, setRunning] = useState(false);
+  const [predictedValue, setPredictedValue] = useState<number | null>(null);
   const [formData, setFormData] = useState<GermanCredit>({
     Checking_Account: "A11",
     Duration: 6,
@@ -63,6 +65,11 @@ const GermanCreditForm = () => {
     Service.predict({
       model: "german-credit",
       ...parameters
+    }).then((response) => {
+      const { y_pred } = response as any;
+      setPredictedValue(y_pred[0]);
+    }).finally(() => {
+      setRunning(false);
     });
   };
 
@@ -134,10 +141,98 @@ const GermanCreditForm = () => {
           value={formData.Disposable_Income}
           onChange={handleChange}
         />
-        <Button type="submit" variant="primary" onClick={handleSubmit}>
+        <Input
+          type="text"
+          name="Personal_Status"
+          label="Personal Status"
+          value={formData.Personal_Status}
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="Other_Debtors"
+          label="Other Debtors"
+          value={formData.Other_Debtors}
+          onChange={handleChange}
+        />
+        <Input
+          type="number"
+          name="Present_Residence"
+          label="Present Residence"
+          value={formData.Present_Residence}
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="Property"
+          label="Property"
+          value={formData.Property}
+          onChange={handleChange}
+        />
+        <Input
+          type="number"
+          name="Age"
+          label="Age"
+          value={formData.Age}
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="Other_Loans"
+          label="Other Loans"
+          value={formData.Other_Loans}
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="Housing"
+          label="Housing"
+          value={formData.Housing}
+          onChange={handleChange}
+        />
+        <Input
+          type="number"
+          name="Existing_Credits"
+          label="Existing Credits"
+          value={formData.Existing_Credits}
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="Job"
+          label="Job"
+          value={formData.Job}
+          onChange={handleChange}
+        />
+        <Input
+          type="number"
+          name="Number_Liable"
+          label="Number Liable"
+          value={formData.Number_Liable}
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="Telephone"
+          label="Telephone"
+          value={formData.Telephone}
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="Foreign_Worker"
+          label="Foreign Worker"
+          value={formData.Foreign_Worker}
+          onChange={handleChange}
+        />
+        <Button type="submit" variant="primary" onClick={handleSubmit} busy={isRunning}>
           Predict
         </Button>
       </Flex>
+      {predictedValue != null && <Flex className="m-small" flexDirection="column" rowGap="6px">
+        <div className="text-lg font-bold">Predicted Value</div>
+        <div className="text-2xl">{predictedValue}</div>
+      </Flex>}      
     </form>
   );
 }

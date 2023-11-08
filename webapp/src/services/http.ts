@@ -8,7 +8,6 @@ type Options = {
 
 const defaultHeaders = {
   'Content-Type': 'application/json',
-  'Access-Control-Allow-Origin': '*'
 };
 
 export type HttpResponse<T> = {

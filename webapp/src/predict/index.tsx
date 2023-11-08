@@ -5,6 +5,7 @@ import GermanCredit from "./GermanCredit";
 import HeartDisease from "./HeartDisease";
 import SmsSpamForm from "./SmsSpam";
 import WineQuality from "./WineQuality";
+import BbcArticleCategoryForm from "./BbcCategory";
 
 /*
 Models and parameters:
@@ -13,6 +14,7 @@ Models and parameters:
 - model: german-credit parameters: ['Checking.Account', 'Duration', 'Credit.Hist', 'Purpose', 'Credit.Amount', 'Saving.Account', 'Employmnet', 'Disposable.Income','Personal.Status', 'Other.Debtors', 'Present.Residence', 'Property','Age', 'Other.Loans', 'Housing', 'Existing.Credits', 'Job','Number.Liable', 'Telephone', 'Foreign.Worker']
 - model: wine-quality parameters: ['fixed.acidity', 'volatile.acidity', 'citric.acid', 'residual.sugar', 'chlorides', 'free.sulfur.dioxide', 'total.sulfur.dioxide', 'density', 'pH', 'sulphates', 'alcohol']
 - model: bikeshare parameters: ['season','mnth','hr','holiday','weekday','workingday','weathersit','temp','atemp','hum','windspeed']
+- model: bbc parameters: ['text']
 }
 */
 
@@ -49,6 +51,10 @@ const Home: React.FC = () => {
             {
               title: "Bike Share",
               children: <BikeShare />,
+            },
+            {
+              title: "BBC Article Category",
+              children: <BbcArticleCategoryForm />,
             },
           ]}
           className="m-xsmall-top"
