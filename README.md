@@ -11,7 +11,7 @@ conda install --yes --file requirements.txt
 ## Docker build
 
 ```bash
-docker build -t ml-models:latest .
+docker build -t ml-course:latest .
 ```
 
 
