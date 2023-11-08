@@ -1,5 +1,5 @@
 # ML Models
-REMOVE LATER
+.
 
 ## Conda environment (for local dev)
 ```
@@ -66,6 +66,7 @@ Create Function URL configuration
 ```bash
 aws lambda create-function-url-config \
 --function-name "$FUNCTION_NAME" \
+--region $AWS_REGION \
 --auth-type NONE \
 --cors '{"AllowOrigins":["*"],"AllowMethods":["POST"],"AllowHeaders":["Content-Length","Accept","Date","Content-Type"],"ExposeHeaders":["Content-Length","Content-Type","Date","Referer","X-Amz-Apigw-Id","X-Amzn-Requestid","X-Amzn-Trace-Id"]}'
 

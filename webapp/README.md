@@ -18,13 +18,13 @@ REACT_APP_API=<url-to-lambda-function>
 
 ```bash
 AWS_REGION=us-east-1
-S3_BUCKET_NAME=ml-course-models
+S3_BUCKET_NAME=uci-ml-models
 aws s3api create-bucket --bucket $S3_BUCKET_NAME --region $AWS_REGION
 ```
 
 ## Enable S3 bucket website hosting
 ```bash
-S3_BUCKET_NAME=ml-course-models
+S3_BUCKET_NAME=uci-ml-models
 aws s3 website s3://$S3_BUCKET_NAME/ --index-document index.html
 ```
 
